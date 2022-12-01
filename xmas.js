@@ -7,7 +7,7 @@ if (arg1 == "g") generate(_0(arg2));
 else runSolution(_0(arg1), arg2);
 
 function runSolution(num1, num2) {
-  var solution = undefined;
+  let solution = undefined;
   console.log("");
   try {
     solution = require(`./dec${num1}/p${num2}`);
@@ -18,7 +18,7 @@ function runSolution(num1, num2) {
     );
   }
 
-  var res = solution();
+  const res = solution();
   console.log(
     `\n${new Date()
       .toTimeString()
