@@ -1,6 +1,7 @@
-var fs = require("fs");
-var arg1 = process.argv[2];
-var arg2 = process.argv[3];
+const fs = require("fs");
+const arg1 = process.argv[2];
+const arg2 = process.argv[3];
+const test = process.argv[4] == "t";
 
 if (arg1 == "g") generate(_0(arg2));
 else runSolution(_0(arg1), arg2);
@@ -21,7 +22,9 @@ function runSolution(num1, num2) {
   console.log(
     `\n${new Date()
       .toTimeString()
-      .substr(0, 8)} - dec${num1}/p${num2}.js result:`
+      .substr(0, 8)} - dec${num1}/p${num2}.js result${
+      test ? " (test input)" : ""
+    }:`
   );
   console.log(res);
 }
