@@ -36,12 +36,25 @@ function generate(num) {
   fs.writeFileSync(
     `./dec${num}/p1.js`,
     `const input = process.argv[4] == "t" ? require("./input-test") : require("./input");
-module.exports = () => { return true; }`
+
+module.exports = () => { 
+  return true; 
+}; 
+
+if (process.argv[2] == undefined) console.log(module.exports());
+`
   );
+
   fs.writeFileSync(
     `./dec${num}/p2.js`,
     `const input = process.argv[4] == "t" ? require("./input-test") : require("./input");
-module.exports = () => { return true; }`
+
+module.exports = () => { 
+  return true; 
+}; 
+
+if (process.argv[2] == undefined) console.log(module.exports());
+`
   );
 }
 
