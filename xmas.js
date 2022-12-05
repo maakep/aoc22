@@ -18,11 +18,15 @@ function runSolution(num1, num2) {
     );
   }
 
+  const before = performance.now();
   const res = solution();
+  const after = performance.now();
+  const elapsed = (after - before).toFixed(4);
+
   console.log(
     `\n${new Date()
       .toTimeString()
-      .substr(0, 8)} - dec${num1}/p${num2}.js result${
+      .substr(0, 8)} (${elapsed}ms) - dec${num1}/p${num2}.js result${
       test ? " (test input)" : ""
     }:`
   );
@@ -37,11 +41,10 @@ function generate(num) {
     `./dec${num}/p1.js`,
     `const input = process.argv[4] == "t" ? require("./input-test") : require("./input");
 
-module.exports = () => { 
-  return true; 
-}; 
+module.exports = () => {
+  return true;
+};
 
-if (process.argv[2] == undefined) console.log(module.exports());
 `
   );
 
@@ -49,11 +52,10 @@ if (process.argv[2] == undefined) console.log(module.exports());
     `./dec${num}/p2.js`,
     `const input = process.argv[4] == "t" ? require("./input-test") : require("./input");
 
-module.exports = () => { 
-  return true; 
+module.exports = () => {
+  return true;
 }; 
 
-if (process.argv[2] == undefined) console.log(module.exports());
 `
   );
 }
